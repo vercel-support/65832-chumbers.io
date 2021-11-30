@@ -1,11 +1,12 @@
 import React from "react"
 import "tailwindcss/tailwind.css"
-import "../../styles/globals.scss"
+// import "../assets/styles/globals.scss"
+import Layout from "../../components/Layout"
 
 export default function Home() {
   return (
-    <div>
-      <h1 className="text-red-600">Hello there!</h1>
-    </div>
+    <Layout>
+      <main className="page">Hello there</main>
+    </Layout>
   )
 }
