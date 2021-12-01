@@ -1,0 +1,73 @@
+fragment Asset on Asset {
+  stage
+  locale
+  remoteId: id
+  createdAt(variation: COMBINED)
+  updatedAt(variation: COMBINED)
+  publishedAt(variation: COMBINED)
+  handle
+  fileName
+  height
+  width
+  size
+  mimeType
+  attribution
+  alternate
+  createdBy {
+    ... on User {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
+  }
+  updatedBy {
+    ... on User {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
+  }
+  publishedBy {
+    ... on User {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
+  }
+  avatarAuthor {
+    ... on Author {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
+  }
+  heroImagePost {
+    ... on Post {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
+  }
+  categoryPictureCategory {
+    ... on Category {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
+  }
+  tagPictureTag {
+    ... on Tag {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
+  }
+  scheduledIn {
+    ... on ScheduledOperation {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
+  }
+  url
+}

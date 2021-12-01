@@ -16,9 +16,12 @@
   "dependencies": {
     "gatsby": "^4.2.0",
     "gatsby-image": "^3.11.0",
+    "gatsby-plugin-image": "^2.2.0",
     "gatsby-plugin-postcss": "^5.2.0",
     "gatsby-plugin-sass": "^5.2.0",
     "gatsby-plugin-sharp": "^4.2.0",
+    "gatsby-plugin-webfonts": "^2.2.1",
+    "gatsby-source-graphcms": "^2.6.0",
     "gatsby-transformer-sharp": "^4.2.0",
     "html-react-parser": "^1.4.0",
     "moment": "^2.29.1",

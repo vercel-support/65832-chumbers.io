@@ -14,5 +14,32 @@ module.exports = {
     `gatsby-plugin-postcss`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
+    {
+      resolve: "gatsby-source-graphcms",
+      options: {
+        endpoint: process.env.GRAPHCMS_ENDPOINT,
+        token: process.env.GRAPHCMS_TOKEN,
+        downloadLocalImages: false,
+        buildMarkdownNodes: false,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-webfonts`,
+      options: {
+        fonts: {
+          google: [
+            {
+              family: "Playfair Display",
+              variants: ["400", "700"],
+            },
+            {
+              family: "Poppins",
+              variants: ["300", "400", "500"],
+            },
+          ],
+        },
+      },
+    },
   ],
 }

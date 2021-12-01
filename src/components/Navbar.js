@@ -6,14 +6,15 @@ import { IoMdSearch } from "react-icons/io"
 import { HiOutlineMenuAlt3 } from "react-icons/hi"
 import styled from "styled-components"
 
-import { headerNavigation } from "../assets/data/headerNavigation"
+// import { headerNavigation } from "../assets/data/headerNavigation"
 import { lowerNavigation } from "../assets/data/lowerNavigation"
+import Inputfield from "./Inputfield"
 
 const Navbar = () => {
   const [show, setShow] = useState(false)
 
   return (
-    <nav className="bg-black flex flex-col justify-items-center items-center">
+    <nav className="bg-off-black flex flex-col justify-items-center items-center">
       <UpperNav setToggle={setShow} isToggled={show} />
       <div
         className={`flex-col md:flex md:flex-row md:justify-items-center justify-between md:w-2/3 md:mx-auto border-t border-gray-100 w-full ${
@@ -31,38 +32,28 @@ const Navbar = () => {
 const UpperNav = ({ setToggle, isToggled }) => {
   return (
     <div className="flex md:justify-items-center justify-between w-full md:w-2/3 md:mx-auto">
-      <h1 className="text-4xl text-white ml-6 md:ml-0 py-6 md:pt-9 md:pb-2 text-center flex-shrink-0 mr-4">
-        ndmarks
+      <h1 className="text-4xl font-display font-bold text-white ml-6 md:ml-0 py-6 md:pt-9 md:pb-4 text-center flex-shrink-0 mr-4 transition duration-600 ease hover:text-teal">
+        <Link to="/">chumbers</Link>
       </h1>
-      <div className="flex-grow px-4 pt-5 pb-2 hidden md:flex">
-        <Search className="flex-grow capitalize my-1 ml-3 mr-1 px-2 rounded-lg">
-          <IoMdSearch
-            style={{ marginLeft: "1.5rem", position: "absolute" }}
-            color="#623CEA"
-            size="1.5em"
-          />
-          <SearchBar
-            id="search-bar"
-            type="text"
-            placeholder="Search"
-            className="flex-none capitalize my-1 ml-3 mr-1 pr-2 pl-10 rounded-lg h-2/3 w-full"
-          />
-        </Search>
-        <button
-          type="submit"
-          className="flex-none bg-blue-600 text-white col-span-1 capitalize rounded-lg ml-3 mt-5 h-2/4 w-20"
-        >
-          search
-        </button>
+      <div className="flex-grow px-2 pt-5 pb-2 hidden md:flex relative z-10">
+        <Inputfield
+          className="my-1 px-2 ml-3 mr-1"
+          type="text"
+          label="🔍 SEARCH"
+          placeholder="Browse the site..."
+          btnLabel="search"
+          isEmail={false}
+          id="navbarSearch"
+        />
       </div>
       <div className="flex-shrink-0 text-gray-500 hidden md:flex items-center w-auto px-2 pt-5 pb-2">
-        <FiYoutube className="ml-6 h-5 w-5" />
-        <FiLinkedin className="ml-6 h-5 w-5" />
-        <FiGithub className="ml-6 h-5 w-5" />
-        <MdOutlineEmail className="ml-6 h-5 w-5" />
+        <FiYoutube className="icon" />
+        <FiLinkedin className="icon" />
+        <FiGithub className="icon" />
+        <MdOutlineEmail className="icon" />
       </div>
       <HiOutlineMenuAlt3
-        className="text-white cursor-pointer transition duration-500 hover:text-blue-600 md:hidden mx-4 my-auto"
+        className="text-white cursor-pointer transition duration-500 hover:text-teal md:hidden mx-4 my-auto"
         size="2.5em"
         onClick={() => setToggle(!isToggled)}
       />

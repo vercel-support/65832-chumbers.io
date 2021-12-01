@@ -4,9 +4,11 @@ import { footerNavigation } from "../assets/data/footerNavigation"
 import { FiYoutube, FiLinkedin, FiGithub } from "react-icons/fi"
 import { MdOutlineEmail } from "react-icons/md"
 
+import Inputfield from "./Inputfield"
+
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 px-6 pt-6 pb-4">
+    <footer className="bg-off-black px-10 pt-6 pb-4">
       <div className="grid grid-cols-6 gap-4 border-b border-gray-100 mb-4 pb-8">
         {footerNavigation.map((col, index) => (
           <div key={index} className="flex flex-col pl-4 justify-start">
@@ -29,32 +31,26 @@ const Footer = () => {
             Get the latest posts, articles and courses sent directly to your
             inbox
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 mt-3">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="md:col-span-2 rounded-md px-2 py-1 focus:ring-2 focus:ring-gray-200"
-              name="email"
-            />
-            <button
-              className="transition duration-500 ease hover:bg-blue-200 inline-block cursor-pointer ml-3 bg-blue-700 rounded-md text-white py-1"
-              type="submit"
-            >
-              Subscribe
-            </button>
-          </div>
+          <Inputfield
+            type="email"
+            label="Notify me"
+            placeholder="E-mail"
+            btnLabel="send"
+            isEmail={true}
+            id="footerNotify"
+          />
         </div>
       </div>
       <div className="pt-4 pb-8 flex justify-between">
         <p className="text-white font-medium">
-          &copy; {new Date().getFullYear()} <span>ndmarks.com</span>. Built with{" "}
-          <a href="gatsbyjs.com">Gatsby</a>
+          &copy; {new Date().getFullYear()} <span>chumbers.com</span>. Built
+          with <a href="gatsbyjs.com">Gatsby</a>
         </p>
         <div className="text-gray-500 flex">
-          <FiYoutube className="ml-6 h-5 w-5" />
-          <FiLinkedin className="ml-6 h-5 w-5" />
-          <FiGithub className="ml-6 h-5 w-5" />
-          <MdOutlineEmail className="ml-6 h-5 w-5" />
+          <FiYoutube className="icon" />
+          <FiLinkedin className="icon" />
+          <FiGithub className="icon" />
+          <MdOutlineEmail className="icon" />
         </div>
       </div>
     </footer>
@@ -62,10 +58,3 @@ const Footer = () => {
 }
 
 export default Footer
-
-{
-  /* <p>
-        &copy; {new Date().getFullYear()} <span>ndmarks.com</span>. Built with{" "}
-        <a href="gatsbyjs.com">Gatsby</a>
-      </p> */
-}

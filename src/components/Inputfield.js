@@ -1,0 +1,37 @@
+import React from "react"
+
+const Inputfield = ({ type, label, placeholder, btnLabel, isEmail, id }) => {
+  return (
+    <div className="input-container grid justify-items-center mt-2 container rounded-md">
+      <input className="c-checkbox rounded-md" type="checkbox" id={id} />
+      <div className="c-formContainer rounded-md">
+        <form className="c-form rounded-md" action="">
+          <input
+            className="c-form__input rounded-md"
+            placeholder={placeholder}
+            type={type}
+            pattern={
+              isEmail && "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{1,63}$"
+            }
+            required
+          />
+          <label className="c-form__buttonLabel" for={id}>
+            <button
+              className="c-form__button btn-black mr-1 mb-2"
+              type="button"
+            >
+              {btnLabel}
+            </button>
+          </label>
+          <label
+            className="c-form__toggle rounded-md"
+            for={id}
+            data-title={label}
+          ></label>
+        </form>
+      </div>
+    </div>
+  )
+}
+
+export default Inputfield
