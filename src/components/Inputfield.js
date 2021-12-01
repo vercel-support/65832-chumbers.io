@@ -4,10 +4,10 @@ const Inputfield = ({ type, label, placeholder, btnLabel, isEmail, id }) => {
   return (
     <div className="input-container grid justify-items-center mt-2 container rounded-md">
       <input className="c-checkbox rounded-md" type="checkbox" id={id} />
-      <div className="c-formContainer rounded-md">
+      <div className="c-formContainer">
         <form className="c-form rounded-md" action="">
           <input
-            className="c-form__input rounded-md"
+            className="c-form__input"
             placeholder={placeholder}
             type={type}
             pattern={
@@ -24,7 +24,7 @@ const Inputfield = ({ type, label, placeholder, btnLabel, isEmail, id }) => {
             </button>
           </label>
           <label
-            className="c-form__toggle rounded-md"
+            className="c-form__toggle rounded-md transition duration-1000 ease-in hover:bg-teal hover:opacity-50"
             for={id}
             data-title={label}
           ></label>
