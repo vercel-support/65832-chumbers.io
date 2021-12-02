@@ -2,9 +2,8 @@ import React, { useState } from "react"
 import { Link } from "gatsby"
 import { FiYoutube, FiLinkedin, FiGithub } from "react-icons/fi"
 import { MdOutlineEmail } from "react-icons/md"
-import { IoMdSearch } from "react-icons/io"
+
 import { HiOutlineMenuAlt3 } from "react-icons/hi"
-import styled from "styled-components"
 
 // import { headerNavigation } from "../assets/data/headerNavigation"
 import { lowerNavigation } from "../assets/data/lowerNavigation"
@@ -14,13 +13,24 @@ const Navbar = () => {
   const [show, setShow] = useState(false)
 
   return (
-    <nav className="bg-off-black flex flex-col justify-items-center items-center">
+    <nav className="bg-off-black flex flex-col justify-items-center items-center sticky top-0 z-50">
       <UpperNav setToggle={setShow} isToggled={show} />
       <div
         className={`flex-col md:flex md:flex-row md:justify-items-center justify-between md:w-2/3 md:mx-auto border-t border-gray-100 w-full ${
           show ? "flex" : "hidden"
         } transition duration-300 ease-in`}
       >
+        <div className="px-4 md:hidden">
+          <Inputfield
+            className="my-1 px-2 ml-3 mr-1"
+            type="text"
+            label="🔍 SEARCH"
+            placeholder="Browse the site..."
+            btnLabel="search"
+            isEmail={false}
+            id="navbarSearch"
+          />
+        </div>
         {lowerNavigation.map((dropdown, index) => (
           <LowerNavDropdown key={index} list={dropdown} />
         ))}
@@ -66,7 +76,7 @@ const LowerNavDropdown = ({ list }) => {
     <div className="dropdown w-full md:relative">
       <span>
         <button
-          className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800"
+          className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-off-black  hover:text-teal focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800"
           type="button"
         >
           <span className="capitalize">{list[0]}</span>
@@ -76,18 +86,18 @@ const LowerNavDropdown = ({ list }) => {
             fill="currentColor"
           >
             <path
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-              clip-rule="evenodd"
+              clipRule="evenodd"
             ></path>
           </svg>
         </button>
       </span>
-      <ul className="overflow-hidden w-full origin-top-right bg-white border divide-y outline-none dropdown-menu">
+      <ul className="overflow-hidden w-full origin-top-right bg-off-black text-white outline-none dropdown-menu">
         {list[1].map((el, idx) => (
           <li key={idx}>
             <Link
-              className="text-gray-700 w-full px-4 py-2 text-sm leading-5 text-center capitalize block cursor-pointer transition duration-200 hover:bg-gray-100"
+              className="w-full px-4 py-2 text-sm leading-5 text-center capitalize block cursor-pointer  dropdown-item"
               role="menuitem"
               to="/about"
             >
@@ -99,18 +109,5 @@ const LowerNavDropdown = ({ list }) => {
     </div>
   )
 }
-
-const Search = styled.div`
-  padding: 0.5rem;
-  position: relative;
-  display: flex;
-  align-items: center;
-  width: 100%;
-`
-
-const SearchBar = styled.input`
-  padding: 1rem 1rem 1rem 3.5rem;
-  width: 100%;
-`
 
 export default Navbar

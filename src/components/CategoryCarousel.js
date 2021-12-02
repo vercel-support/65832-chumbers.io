@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql, useStaticQuery, Link } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 const query = graphql`
   {
@@ -35,8 +35,9 @@ export const CategoryCarousel = () => {
       </div>
       <section className="flex p-12 overflow-x-scroll card-list">
         {categories.map(category => (
-          <article
+          <Link
             key={category.name}
+            to={`/categories/${category.slug}`}
             className="flex flex-col justify-items-center rounded-2xl card overflow-hidden cursor-pointer shadow-xl bg-white container relative"
           >
             <GatsbyImage
@@ -53,12 +54,8 @@ export const CategoryCarousel = () => {
               >
                 {category.name}
               </h2>
-              {/* <div
-                className="heading-line"
-                style={{ backgroundColor: `${category.categoryTheme.hex}` }}
-              ></div> */}
             </div>
-          </article>
+          </Link>
         ))}
       </section>
     </section>

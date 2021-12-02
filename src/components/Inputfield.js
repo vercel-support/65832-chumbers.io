@@ -2,7 +2,7 @@ import React from "react"
 
 const Inputfield = ({ type, label, placeholder, btnLabel, isEmail, id }) => {
   return (
-    <div className="input-container grid justify-items-center mt-2 container rounded-md">
+    <div className="input-container grid justify-items-center mt-4 container rounded-md">
       <input className="c-checkbox rounded-md" type="checkbox" id={id} />
       <div className="c-formContainer">
         <form className="c-form rounded-md" action="">
@@ -15,7 +15,7 @@ const Inputfield = ({ type, label, placeholder, btnLabel, isEmail, id }) => {
             }
             required
           />
-          <label className="c-form__buttonLabel" for={id}>
+          <label className="c-form__buttonLabel" htmlFor={id}>
             <button
               className="c-form__button btn-black mr-1 mb-2"
               type="button"
@@ -25,7 +25,7 @@ const Inputfield = ({ type, label, placeholder, btnLabel, isEmail, id }) => {
           </label>
           <label
             className="c-form__toggle rounded-md transition duration-1000 ease-in hover:bg-teal hover:opacity-50"
-            for={id}
+            htmlFor={id}
             data-title={label}
           ></label>
         </form>

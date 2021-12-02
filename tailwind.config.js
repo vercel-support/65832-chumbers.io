@@ -1,3 +1,5 @@
+const defaultTheme = require("tailwindcss/defaultTheme")
+
 module.exports = {
   purge: [],
   darkMode: false, // or 'media' or 'class'
@@ -12,6 +14,10 @@ module.exports = {
         teal: "#4ef6c7",
         "off-black": "#1b1b1b",
       },
+    },
+    screens: {
+      xs: "475px",
+      ...defaultTheme.screens,
     },
   },
   variants: {

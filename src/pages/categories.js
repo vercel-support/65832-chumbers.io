@@ -1,7 +1,7 @@
 import React from "react"
 import Layout from "../components/Layout"
-import { StaticImage } from "gatsby-plugin-image"
-import { Link, graphql } from "gatsby"
+// import { StaticImage } from "gatsby-plugin-image"
+import { graphql } from "gatsby"
 
 const categories = ({
   data: {
