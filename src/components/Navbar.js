@@ -13,7 +13,7 @@ const Navbar = () => {
   const [show, setShow] = useState(false)
 
   return (
-    <nav className="bg-off-black flex flex-col justify-items-center items-center sticky top-0 z-50">
+    <nav className="bg-off-black flex flex-col justify-items-center items-center sticky top-0 z-50 w-full">
       <UpperNav setToggle={setShow} isToggled={show} />
       <div
         className={`flex-col md:flex md:flex-row md:justify-items-center justify-between md:w-2/3 md:mx-auto border-t border-gray-100 w-full ${

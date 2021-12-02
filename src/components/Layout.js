@@ -10,9 +10,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Navbar />
-      <main className="py-10 px-10" style={{ backgroundColor: "#eff5fc" }}>
-        {children}
-      </main>
+      <main className="my-10 mx-10">{children}</main>
 
       <Footer />
     </>
