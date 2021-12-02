@@ -11,7 +11,9 @@ const Inputfield = ({ type, label, placeholder, btnLabel, isEmail, id }) => {
             placeholder={placeholder}
             type={type}
             pattern={
-              isEmail && "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{1,63}$"
+              isEmail
+                ? "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{1,63}$"
+                : undefined
             }
             required
           />

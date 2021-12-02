@@ -8,10 +8,8 @@ import Featured from "../components/Featured"
 export default function Home() {
   return (
     <Layout>
-      <main className="py-10 px-10" style={{ backgroundColor: "#eff5fc" }}>
-        <CategoryCarousel />
-        <Featured />
-      </main>
+      <CategoryCarousel />
+      <Featured />
     </Layout>
   )
 }

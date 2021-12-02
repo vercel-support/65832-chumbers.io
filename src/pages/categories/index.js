@@ -1,15 +1,14 @@
 import React from "react"
-import Layout from "../components/Layout"
-// import { StaticImage } from "gatsby-plugin-image"
+import Layout from "../../components/Layout"
 import { graphql } from "gatsby"
 
-const categories = ({
+const CategoriesIndex = ({
   data: {
     allGraphCmsCategory: { nodes },
   },
 }) => {
   console.log(nodes)
-  return <Layout>hello from categories</Layout>
+  return <Layout>hello from categories!</Layout>
 }
 
 export const query = graphql`
@@ -27,4 +26,4 @@ export const query = graphql`
   }
 `
 
-export default categories
+export default CategoriesIndex

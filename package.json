@@ -19,7 +19,7 @@
     "gatsby-plugin-image": "^2.2.0",
     "gatsby-plugin-postcss": "^5.2.0",
     "gatsby-plugin-sass": "^5.2.0",
-    "gatsby-plugin-sharp": "^4.2.0",
+    "gatsby-plugin-sharp": "^4.3.0",
     "gatsby-plugin-webfonts": "^2.2.1",
     "gatsby-source-filesystem": "^4.3.0",
     "gatsby-source-graphcms": "^2.6.0",
@@ -33,6 +33,7 @@
     "react-icons": "^4.3.1",
     "react-multi-carousel": "^2.6.5",
     "sass": "^1.43.4",
+    "slugify": "^1.6.3",
     "styled-components": "^5.3.3",
     "tailwindcss": "^2.2.19"
   },

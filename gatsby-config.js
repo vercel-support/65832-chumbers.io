@@ -9,6 +9,11 @@ require("dotenv").config({
 
 module.exports = {
   /* Your site config here */
+  siteMetadata: {
+    title: "Chumbers.com",
+    description: "A personal essays and blogs site",
+    author: "@nickmarks",
+  },
   plugins: [
     `gatsby-plugin-sass`,
     `gatsby-plugin-postcss`,
