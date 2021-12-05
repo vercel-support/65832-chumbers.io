@@ -12,9 +12,9 @@ const Footer = () => {
       <div className="grid grid-cols-2 md:grid-cols-6 gap-4  mb-4 pb-8">
         {footerNavigation.map((col, index) => (
           <div key={index} className="flex flex-col pl-4 justify-start">
-            <h3 className="text-gray-200 text-sm uppercase font-semibold">
+            <h4 className="text-gray-200 text-sm uppercase font-semibold">
               {col[0]}
-            </h3>
+            </h4>
             {col[1].map((row, index) => (
               <p
                 key={index}
@@ -26,9 +26,9 @@ const Footer = () => {
           </div>
         ))}
         <div className="col-span-2 flex flex-col text-sm">
-          <h3 className="text-gray-200 uppercase font-semibold">
+          <h4 className="text-gray-200 uppercase font-semibold">
             Subscribe to receive updates
-          </h3>
+          </h4>
           <p className="text-gray-200">
             Get the latest posts, articles and courses sent directly to your
             inbox

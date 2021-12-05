@@ -20,6 +20,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-image`,
+    `gatsby-plugin-mdx`,
     {
       resolve: "gatsby-source-graphcms",
       options: {
@@ -27,6 +28,13 @@ module.exports = {
         token: process.env.GRAPHCMS_TOKEN,
         downloadLocalImages: false,
         buildMarkdownNodes: false,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages/`,
       },
     },
     {

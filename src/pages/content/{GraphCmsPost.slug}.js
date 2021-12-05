@@ -1,22 +1,34 @@
 import React from "react"
 import Layout from "../../components/Layout"
+import Seo from "../../components/SEO"
 import { graphql, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { BsFillCalendarFill, BsClock } from "react-icons/bs"
 import slugify from "slugify"
 import moment from "moment"
-import { RichText } from "@graphcms/rich-text-react-renderer"
+import RichText from "../../components/ContentBody"
+import TableOfContents from "../../components/TableOfContents"
+import { countWords, READING_RATE } from "../../utils/utilities"
 
 const PostTemplate = ({ data }) => {
-  const { title, heroImage, category, content, publishedAt, tags } =
+  const { title, heroImage, category, content, publishedAt, tags, excerpt } =
     data.graphCmsPost
+
+  console.log(data)
+
+  // const toc = data.mdx.tableOfContents
+
+  const duration = countWords(content.text) / READING_RATE
+
+  // console.log(content)
 
   return (
     <Layout>
+      <Seo title={title} description={excerpt} />
       <GatsbyImage
         image={heroImage.gatsbyImageData}
         alt={heroImage.alternate ? heroImage.alternate : "post hero-image"}
-        className="w-screen h-80 overflow-hidden hero-image -mt-10 mb-6"
+        className="w-screen h-96 overflow-hidden hero-image -mt-10 mb-6 "
       />
       <header className="text-center flex flex-col justify-items-center items-center post-header">
         <p>Breadcrumbs </p>
@@ -33,7 +45,7 @@ const PostTemplate = ({ data }) => {
                 <Link
                   to={`/tags/${tagSlug}`}
                   key={idx}
-                  className="p-1 mr-1 mt-1 rounded-md bg-teal transition transform duration-500 hover:text-white hover:border hover:border-off-black"
+                  className="p-1 mr-1 mt-1 rounded-md bg-teal transition transform duration-300 hover:text-white hover:border hover:border-off-black"
                 >
                   {`#${tag.name}`}
                 </Link>
@@ -46,32 +58,14 @@ const PostTemplate = ({ data }) => {
           </article>
           <article className="flex p-1 mt-1">
             <BsClock className="mr-2" />
-            <p>5 min. read</p>
+            <p>{Math.round(duration)} min. read</p>
           </article>
         </section>
       </header>
 
-      <section className="text-left mx-28">
-        <RichText
-          content={content.raw}
-          renderers={{
-            h1: ({ children }) => (
-              <h1 className="font-display text-3xl font-bold mt-4 mb-2">
-                {children}
-              </h1>
-            ),
-            h2: ({ children }) => (
-              <h2 className="font-display text-2xl font-bold mt-4 mb-2">
-                {children}
-              </h2>
-            ),
-            h3: ({ children }) => (
-              <h3 className="font-display text-xl font-bold mt-3 mb-1">
-                {children}
-              </h3>
-            ),
-          }}
-        />
+      <section className="rich-text text-left md:mx-28 xs:mx-6 text-off-black">
+        <TableOfContents toc={null} />
+        <RichText content={content} />
       </section>
     </Layout>
   )
@@ -104,11 +98,16 @@ export const query = graphql`
       updatedAt
       content {
         raw
+        text
       }
+      excerpt
       tags {
         name
         slug
       }
+    }
+    mdx(id: { eq: $id }) {
+      tableOfContents
     }
   }
 `

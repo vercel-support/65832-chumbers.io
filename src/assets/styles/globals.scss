@@ -15,6 +15,7 @@ html,
 body {
   height: 100%;
   background-color: #eff5fc;
+  overflow-x: hidden;
 }
 
 #___gatsby,
@@ -448,4 +449,82 @@ footer {
   width: 80%;
   margin-top: 3.5rem;
   margin-bottom: 3.5rem;
+}
+
+.post-heading {
+  scroll-margin-top: 16px;
+}
+
+/* Safari-only */
+@supports (-webkit-hyphens: none) {
+  .post-heading {
+    padding-top: 16px;
+    margin-top: -16px;
+  }
+}
+
+a {
+  color: grey;
+  text-decoration: none;
+}
+
+li.active > a {
+  color: white;
+}
+
+li > a:hover {
+  color: white;
+}
+
+.rich-text .post-paragraph:first-child::first-letter {
+  display: block;
+  margin: 5px 0 0 5px;
+  float: left;
+  color: #000;
+  font-size: 60px;
+}
+
+td .post-paragraph {
+  display: inline;
+  margin: 0px;
+  float: none;
+  font-size: 1rem;
+}
+
+.table-row {
+  min-height: 5rem;
+}
+
+.post-paragraph:has(+ ul) {
+  margin-bottom: 3rem;
+}
+
+.post-image {
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+
+  &:hover {
+    svg {
+      background-color: $primary;
+      color: $white;
+    }
+  }
+}
+
+.modal-content,
+#caption {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
 }

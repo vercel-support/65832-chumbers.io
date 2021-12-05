@@ -60,7 +60,7 @@ const Featured = () => {
           Featured posts
         </h2>
       </div>
-      <div className="w-full gap-8 grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 mt-10">
+      <div className="w-full gap-8 grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 mt-10">
         {featured.map((post, idx) => {
           const slugPost = slugify(post.title, {
             lower: true,
