@@ -89,8 +89,11 @@ const ContentBody = ({ content }) => {
           </section>
         ),
         table_head: ({ children }) => (
-          <th className="h-12 border-b border-off-black bg-teal">{children}</th>
+          <thead className="h-12 border-b border-off-black bg-teal">
+            {children}
+          </thead>
         ),
+        table_body: ({ children }) => <tbody>{children}</tbody>,
         table_row: ({ children }) => (
           <tr className="h-12 border-b border-off-black">{children}</tr>
         ),

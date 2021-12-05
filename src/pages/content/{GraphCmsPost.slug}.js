@@ -63,9 +63,11 @@ const PostTemplate = ({ data }) => {
         </section>
       </header>
 
-      <section className="rich-text text-left md:mx-28 xs:mx-6 text-off-black">
+      <section className="rich-text text-left md:mx-28 xs:mx-6 text-off-black grid grid-cols-6 gap-4">
         <TableOfContents toc={null} />
-        <RichText content={content} />
+        <div className="col-span-5 flex flex-col">
+          <RichText content={content} />
+        </div>
       </section>
     </Layout>
   )
@@ -105,9 +107,6 @@ export const query = graphql`
         name
         slug
       }
-    }
-    mdx(id: { eq: $id }) {
-      tableOfContents
     }
   }
 `

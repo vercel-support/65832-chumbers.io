@@ -451,31 +451,6 @@ footer {
   margin-bottom: 3.5rem;
 }
 
-.post-heading {
-  scroll-margin-top: 16px;
-}
-
-/* Safari-only */
-@supports (-webkit-hyphens: none) {
-  .post-heading {
-    padding-top: 16px;
-    margin-top: -16px;
-  }
-}
-
-a {
-  color: grey;
-  text-decoration: none;
-}
-
-li.active > a {
-  color: white;
-}
-
-li > a:hover {
-  color: white;
-}
-
 .rich-text .post-paragraph:first-child::first-letter {
   display: block;
   margin: 5px 0 0 5px;
@@ -527,4 +502,33 @@ td .post-paragraph {
   to {
     transform: scale(1);
   }
+}
+
+.post-heading {
+  scroll-margin-top: 16px;
+}
+
+/* Safari-only */
+@supports (-webkit-hyphens: none) {
+  .post-heading {
+    padding-top: 24px;
+    margin-top: -24px;
+  }
+}
+
+.toc li.active > a {
+  border-color: $primary;
+  border-left-width: 4px;
+}
+
+.toc li > a:hover {
+  color: white;
+  border-color: $tertiary;
+  border-left-width: 4px;
+}
+
+.toc li {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
