@@ -13,6 +13,8 @@ module.exports = {
       colors: {
         teal: "#4ef6c7",
         "off-black": "#1b1b1b",
+        secondary: "rgba(78, 246, 199, 0.7)",
+        tertiary: "rgba(78, 246, 199, 0.4)",
       },
     },
     screens: {

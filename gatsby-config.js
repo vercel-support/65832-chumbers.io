@@ -20,6 +20,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-image`,
+
     {
       resolve: "gatsby-source-graphcms",
       options: {
@@ -44,6 +45,16 @@ module.exports = {
             },
           ],
         },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-page-progress`,
+      options: {
+        height: 3,
+        prependToBody: false,
+        color: `#4ef6c7`,
+        footerHeight: 500,
+        headerHeight: 0,
       },
     },
   ],

@@ -40,7 +40,13 @@ const ContentBody = ({ content }) => {
           </p>
         ),
         code: ({ children }) => (
-          <code className="text-black bg-gray-100 border border-black rounded-md px-1">
+          <code
+            className="whitespace-pre-wrap bg-gray-100 rounded-md px-2 py-1"
+            style={{
+              color: "#EB5757",
+              backgroundColor: "rgba(135,131,120,0.15)",
+            }}
+          >
             {children}
           </code>
         ),
@@ -75,7 +81,7 @@ const ContentBody = ({ content }) => {
           )
         },
         blockquote: ({ children }) => (
-          <blockquote className="ml-2 my-4 py-2 font-display text-2xl pl-4 border-l-4 border-off-black italic transition duration-500 ease-out hover:border-teal">
+          <blockquote className="ml-2 my-4 py-2 font-display text-2xl pl-4 border-l-4 border-off-black italic transition duration-500 ease-out hover:border-teal bg-tertiary rounded-sm">
             {children}
           </blockquote>
         ),
@@ -85,7 +91,7 @@ const ContentBody = ({ content }) => {
         ol: ({ children }) => <ol className="ml-6 list-decimal">{children}</ol>,
         table: ({ children }) => (
           <section className="grid place-items-center">
-            <table className="border border-off-black">{children}</table>
+            <table className="border border-off-black w-5/6">{children}</table>
           </section>
         ),
         table_head: ({ children }) => (
@@ -98,7 +104,9 @@ const ContentBody = ({ content }) => {
           <tr className="h-12 border-b border-off-black">{children}</tr>
         ),
         table_cell: ({ children }) => (
-          <td className="w-12 border-r border-off-black">{children}</td>
+          <td className="border-r border-off-black text-center min-w-max px-2">
+            {children}
+          </td>
         ),
         class: ({ children, className }) => {
           const code = children?.props?.content[0]?.children[0].text
