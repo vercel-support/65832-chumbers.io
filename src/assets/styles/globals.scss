@@ -137,7 +137,7 @@ hr {
 /* CSS */
 .btn-white {
   align-items: center;
-  background-color: $secondary;
+  background-color: $primary;
   border: 2px solid $white;
   border-radius: 8px;
   box-sizing: border-box;
@@ -183,14 +183,14 @@ hr {
 
 .btn-black {
   align-items: center;
-  background-color: $secondary;
+  background-color: $primary;
   border: 2px solid $off-black;
   border-radius: 8px;
   box-sizing: border-box;
   cursor: pointer;
   display: flex;
   justify-content: center;
-  color: $white;
+  color: $off-black;
   position: relative;
   text-align: center;
   text-transform: uppercase;
@@ -226,6 +226,10 @@ hr {
 
 .btn-black:hover {
   outline: 0;
+}
+
+.pagination:disabled svg {
+  color: rgb(189, 189, 189);
 }
 
 //INPUT FIELDS

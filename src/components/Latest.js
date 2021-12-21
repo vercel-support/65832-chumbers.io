@@ -74,14 +74,14 @@ const Latest = () => {
               to={`/content/${slugPost}`}
               className="flex border border-gray-200 rounded-lg shadow-lg transform duration-500 ease-out bg-white hover:shadow-xl cursor-pointer overflow-hidden mb-3 h-64"
             >
-              <div className="w-1/2">
+              <div className="w-2/5">
                 <GatsbyImage
                   image={post.heroImage.gatsbyImageData}
                   alt={post.heroImage.alternate}
                   className="h-full w-full object-cover z-0"
                 />
               </div>
-              <aside className="flex flex-col w-1/2 text-left m-3">
+              <aside className="flex flex-col w-3/5 text-left m-3">
                 <h3 className="font-display text-xl font-bold">{post.title}</h3>
                 <div className="flex mt-3">
                   <BsFillCalendarFill className="mr-2 pt-1" />

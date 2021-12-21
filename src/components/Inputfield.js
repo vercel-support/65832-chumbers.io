@@ -21,6 +21,7 @@ const Inputfield = ({ type, label, placeholder, btnLabel, isEmail, id }) => {
             <button
               className="c-form__button btn-black mr-1 mb-2"
               type="button"
+              name={id}
             >
               {btnLabel}
             </button>
@@ -29,7 +30,9 @@ const Inputfield = ({ type, label, placeholder, btnLabel, isEmail, id }) => {
             className="c-form__toggle rounded-md transition duration-1000 ease-in hover:bg-teal hover:opacity-50"
             htmlFor={id}
             data-title={label}
-          ></label>
+          >
+            <input type="text" className="hidden" />
+          </label>
         </form>
       </div>
     </div>

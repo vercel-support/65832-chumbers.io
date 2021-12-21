@@ -103,7 +103,7 @@ const Featured = () => {
                       <Link
                         to={`/tags/${tagSlug}`}
                         key={idx}
-                        className="p-1 mr-1 mt-1 rounded-md bg-teal transition transform duration-500 hover:text-white hover:border hover:border-off-black"
+                        className="p-1 mr-1 mt-1 rounded-md bg-teal transition transform duration-500 hover:text-white hover:border hover:border-off-black lowercase"
                       >
                         {`#${tag.name}`}
                       </Link>
