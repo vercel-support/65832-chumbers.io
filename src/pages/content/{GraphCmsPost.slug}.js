@@ -87,8 +87,11 @@ const PostTemplate = ({ data }) => {
         </section>
       </header>
 
-      <section className="rich-text text-left md:mx-28 xs:mx-3 text-off-black">
-        <div className="flex flex-col">
+      <section
+        className="rich-text text-left xl:mx-auto md:mx-28 xs:mx-3 text-off-black"
+        style={{ maxWidth: 740 }}
+      >
+        <div className="w-full flex flex-col ">
           <RichText content={content} />
         </div>
       </section>

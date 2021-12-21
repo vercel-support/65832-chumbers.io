@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { graphql, useStaticQuery, Link } from "gatsby"
 import slugify from "slugify"
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs"

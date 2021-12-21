@@ -550,3 +550,16 @@ td .post-paragraph {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+// Hero images
+.hero-image img {
+  position: sticky;
+}
+
+.post-preview {
+  display: -webkit-box;
+  -webkit-line-clamp: var(--line-clamp, 4);
+  -webkit-box-orient: vertical;
+  word-break: var(--word-break, "none");
+  overflow: hidden;
+}
