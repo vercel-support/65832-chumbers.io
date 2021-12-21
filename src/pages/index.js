@@ -1,10 +1,10 @@
 import React from "react"
 import "tailwindcss/tailwind.css"
 import Layout from "../components/Layout"
-import { CategoryCarousel } from "../components/CategoryCarousel"
-import Featured from "../components/Featured"
-import Latest from "../components/Latest"
-import TagsList from "../components/TagsList"
+import { CategoryCarousel } from "../sections/CategoryCarousel"
+import Featured from "../sections/Featured"
+import Latest from "../sections/Latest"
+import TagsList from "../sections/TagsList"
 
 export default function Home() {
   return (

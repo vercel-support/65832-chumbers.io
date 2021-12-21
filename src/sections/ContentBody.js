@@ -1,7 +1,7 @@
 import React from "react"
 import { RichText } from "@graphcms/rich-text-react-renderer"
-import PostImage from "./PostImage"
-import Codeblock from "./Codeblock"
+import PostImage from "../components/PostImage"
+import Codeblock from "../components/Codeblock"
 import { Link } from "gatsby"
 
 const ContentBody = ({ content }) => {
