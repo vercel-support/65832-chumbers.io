@@ -62,7 +62,7 @@ const LinkedContent = ({ name, picture, posts, isCategory }) => {
           </div> */}
           <div className="flex flex-col mt-4">
             {posts.map((post, idx) => {
-              const { featuredPost, slug, title, publishedAt, content } = post
+              const { featuredPost, title, publishedAt, content } = post
               const duration = countWords(content.text) / READING_RATE
 
               const slugPost = slugify(title, {
@@ -73,7 +73,7 @@ const LinkedContent = ({ name, picture, posts, isCategory }) => {
               return (
                 <article
                   key={idx}
-                  className="font-display rounded-md border-2 border-gray-200  text-xl my-2 p-3 transition duration-200 hover:bg-gray-200 hover:opacity-60 cursor-pointer"
+                  className="font-display rounded-md border-2 border-gray-200  text-xl my-1 p-3 transition duration-200 hover:bg-gray-200 hover:opacity-60 cursor-pointer bg-white"
                 >
                   <details>
                     <summary>
@@ -92,7 +92,7 @@ const LinkedContent = ({ name, picture, posts, isCategory }) => {
                       </p>
                       <p className="flex mx-2 items-center">
                         <BsClock className="mr-2" />
-                        {`${Math.round(duration)} min. read`}
+                        {`${Math.ceil(duration)} min. read`}
                       </p>
                       {featuredPost && (
                         <p className="flex mx-2 items-center">

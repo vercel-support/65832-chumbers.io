@@ -72,7 +72,7 @@ const Latest = () => {
             <Link
               key={idx}
               to={`/content/${slugPost}`}
-              className="flex border border-gray-200 rounded-lg shadow-lg transform duration-500 ease-out bg-white hover:shadow-xl cursor-pointer overflow-hidden mb-3 h-64"
+              className="flex border border-gray-200 rounded-lg shadow-lg transform duration-500 ease-out bg-white hover:shadow-xl cursor-pointer overflow-hidden mb-3 h-48"
             >
               <div className="w-2/5">
                 <GatsbyImage
@@ -87,7 +87,7 @@ const Latest = () => {
                   <BsFillCalendarFill className="mr-2 pt-1" />
                   {moment(post.publishedAt).format("MMM DD, YYYY")}
                   <BsClock className="mx-2 pt-1" />
-                  <p>{Math.round(duration)} min. read</p>
+                  <p>{Math.ceil(duration)} min. read</p>
                 </div>
                 <article className="text-xs mt-3">{post.excerpt}</article>
                 <button className="btn-black mr-1 mt-3 h-9 w-32" type="button">

@@ -28,7 +28,7 @@ const PostTemplate = ({ data }) => {
 
   const url = typeof window !== "undefined" ? window.location.href : ""
 
-  console.log(relatedPosts)
+  console.log(data.graphCmsPost)
 
   return (
     <Layout>
@@ -82,7 +82,7 @@ const PostTemplate = ({ data }) => {
           </article>
           <article className="flex p-1 mt-1">
             <BsClock className="mr-2" />
-            <p>{Math.round(duration)} min. read</p>
+            <p>{Math.ceil(duration)} min. read</p>
           </article>
         </section>
       </header>
