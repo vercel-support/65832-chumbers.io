@@ -6,6 +6,8 @@ fragment Course on Course {
   publishedAt
   courseTitle
   isCompleted
+  overview
+  slug
   createdBy {
     ... on User {
       remoteTypeName: __typename

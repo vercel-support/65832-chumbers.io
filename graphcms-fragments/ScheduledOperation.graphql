@@ -58,6 +58,11 @@ fragment ScheduledOperation on ScheduledOperation {
       remoteId: id
       stage
     }
+    ... on Course {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
     ... on Post {
       remoteTypeName: __typename
       remoteId: id

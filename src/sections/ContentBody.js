@@ -5,6 +5,7 @@ import Codeblock from "../components/Codeblock"
 import { Link } from "gatsby"
 
 const ContentBody = ({ content }) => {
+  console.log(content)
   return (
     <RichText
       content={content.raw}
@@ -118,6 +119,22 @@ const ContentBody = ({ content }) => {
           } else {
             return <div className={className}>{children}</div>
           }
+        },
+        embed: {
+          Category: ({ nodeId }) => {
+            return (
+              <div>
+                <h3>{nodeId}</h3>
+              </div>
+            )
+          },
+          Tag: ({ nodeId }) => {
+            return (
+              <div>
+                <h3>{nodeId}</h3>
+              </div>
+            )
+          },
         },
       }}
     />

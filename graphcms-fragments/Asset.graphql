@@ -62,6 +62,13 @@ fragment Asset on Asset {
       stage
     }
   }
+  courseImageCourse {
+    ... on Course {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
+  }
   scheduledIn {
     ... on ScheduledOperation {
       remoteTypeName: __typename

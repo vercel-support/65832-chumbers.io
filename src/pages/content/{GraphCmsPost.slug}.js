@@ -3,13 +3,17 @@ import Layout from "../../components/Layout"
 import Seo from "../../components/SEO"
 import { graphql, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
-import { BsFillCalendarFill, BsClock } from "react-icons/bs"
+import {
+  BsFillCalendarFill,
+  BsClock,
+  BsArrowLeft,
+  BsArrowRight,
+} from "react-icons/bs"
 import { FiTwitter, FiFacebook, FiLinkedin } from "react-icons/fi"
+
 import slugify from "slugify"
 import moment from "moment"
 import RichText from "../../sections/ContentBody"
-// import SimilarPosts from "../../components/SimilarPosts"
-//import TableOfContents from "../../components/TableOfContents"
 import { countWords, READING_RATE } from "../../utils/utilities"
 
 const PostTemplate = ({ data }) => {
@@ -21,14 +25,35 @@ const PostTemplate = ({ data }) => {
     publishedAt,
     tags,
     excerpt,
-    relatedPosts,
+    prevPost,
+    nextPost,
+    course,
   } = data.graphCmsPost
 
   const duration = countWords(content.text) / READING_RATE
 
   const url = typeof window !== "undefined" ? window.location.href : ""
 
-  console.log(data.graphCmsPost)
+  const nextPostSlug = nextPost
+    ? slugify(nextPost.title, {
+        lower: true,
+        remove: /[*+~.()'"!:@]/g,
+      })
+    : ""
+
+  const prevPostSlug = prevPost
+    ? slugify(prevPost.title, {
+        lower: true,
+        remove: /[*+~.()'"!:@]/g,
+      })
+    : ""
+
+  const courseSlug = course
+    ? slugify(course.courseTitle, {
+        lower: true,
+        remove: /[*+~.()'"!:@]/g,
+      })
+    : ""
 
   return (
     <Layout>
@@ -84,6 +109,7 @@ const PostTemplate = ({ data }) => {
             <BsClock className="mr-2" />
             <p>{Math.ceil(duration)} min. read</p>
           </article>
+          <Link to={`/courses/${courseSlug}`}>{course.courseTitle}</Link>
         </section>
       </header>
 
@@ -94,6 +120,36 @@ const PostTemplate = ({ data }) => {
         <div className="w-full flex flex-col ">
           <RichText content={content} />
         </div>
+      </section>
+
+      <section className="justify-between items-end flex my-16 text-sm text-gray-600 xl:mx-auto md:mx-28 xs:mx-3">
+        {prevPost && (
+          <Link
+            to={`/content/${prevPostSlug}`}
+            className=" w-48 flex flex-col items-start text-left transition transform duration-200 hover:text-teal "
+          >
+            <p>{prevPost.title}</p>
+            <BsArrowLeft className="w-8 h-8 mt-1" />
+          </Link>
+        )}
+        {nextPost && (
+          <Link
+            to={`/content/${nextPostSlug}`}
+            className=" w-48 flex flex-col items-end text-right transition transform duration-200 hover:text-teal "
+          >
+            <p>{nextPost.title}</p>
+            <BsArrowRight className="w-8 h-8 mt-1" />
+          </Link>
+        )}
+        {!nextPost && !course.isCompleted && (
+          <Link
+            className=" w-48 flex flex-col items-end text-right text-gray-400 "
+            disabled
+          >
+            <p>More coming soon...</p>
+            <BsArrowRight className="w-8 h-8 mt-1" />
+          </Link>
+        )}
       </section>
 
       <section>
@@ -164,12 +220,15 @@ export const query = graphql`
         name
         slug
       }
-      relatedPosts {
-        id
+      prevPost {
         title
-        category {
-          name
-        }
+      }
+      nextPost {
+        title
+      }
+      course {
+        isCompleted
+        courseTitle
       }
     }
   }

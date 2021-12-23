@@ -27,6 +27,14 @@ fragment Tag on Tag {
       stage
     }
   }
+  tagPicture {
+    ... on Asset {
+      remoteTypeName: __typename
+      remoteId: id
+      locale
+      stage
+    }
+  }
   post {
     ... on Post {
       remoteTypeName: __typename
@@ -34,11 +42,10 @@ fragment Tag on Tag {
       stage
     }
   }
-  tagPicture {
-    ... on Asset {
+  course {
+    ... on Course {
       remoteTypeName: __typename
       remoteId: id
-      locale
       stage
     }
   }
