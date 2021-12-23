@@ -109,7 +109,9 @@ const PostTemplate = ({ data }) => {
             <BsClock className="mr-2" />
             <p>{Math.ceil(duration)} min. read</p>
           </article>
-          <Link to={`/courses/${courseSlug}`}>{course.courseTitle}</Link>
+          {course && (
+            <Link to={`/courses/${courseSlug}`}>{course.courseTitle}</Link>
+          )}
         </section>
       </header>
 
@@ -122,35 +124,42 @@ const PostTemplate = ({ data }) => {
         </div>
       </section>
 
-      <section className="justify-between items-end flex my-16 text-sm text-gray-600 xl:mx-auto md:mx-28 xs:mx-3">
-        {prevPost && (
-          <Link
-            to={`/content/${prevPostSlug}`}
-            className=" w-48 flex flex-col items-start text-left transition transform duration-200 hover:text-teal "
-          >
-            <p>{prevPost.title}</p>
-            <BsArrowLeft className="w-8 h-8 mt-1" />
-          </Link>
-        )}
-        {nextPost && (
-          <Link
-            to={`/content/${nextPostSlug}`}
-            className=" w-48 flex flex-col items-end text-right transition transform duration-200 hover:text-teal "
-          >
-            <p>{nextPost.title}</p>
-            <BsArrowRight className="w-8 h-8 mt-1" />
-          </Link>
-        )}
-        {!nextPost && !course.isCompleted && (
-          <Link
-            className=" w-48 flex flex-col items-end text-right text-gray-400 "
-            disabled
-          >
-            <p>More coming soon...</p>
-            <BsArrowRight className="w-8 h-8 mt-1" />
-          </Link>
-        )}
-      </section>
+      {course && (
+        <section
+          className={`justify-between items-end flex my-16 text-sm text-gray-600 xl:mx-auto md:mx-28 xs:mx-3 ${
+            !prevPost && "flex-row-reverse"
+          }`}
+          style={{ maxWidth: 740 }}
+        >
+          {prevPost && (
+            <Link
+              to={`/content/${prevPostSlug}`}
+              className=" w-48 flex flex-col items-start text-left transition transform duration-200 hover:text-teal "
+            >
+              <p>{prevPost.title}</p>
+              <BsArrowLeft className="w-8 h-8 mt-1" />
+            </Link>
+          )}
+          {nextPost && (
+            <Link
+              to={`/content/${nextPostSlug}`}
+              className=" w-48 flex flex-col items-end text-right transition transform duration-200 hover:text-teal "
+            >
+              <p>{nextPost.title}</p>
+              <BsArrowRight className="w-8 h-8 mt-1" />
+            </Link>
+          )}
+          {!nextPost && !course.isCompleted && (
+            <Link
+              className=" w-48 flex flex-col items-end text-right text-gray-400 "
+              disabled
+            >
+              <p>More coming soon...</p>
+              <BsArrowRight className="w-8 h-8 mt-1" />
+            </Link>
+          )}
+        </section>
+      )}
 
       <section>
         <div className="flex items-center">
