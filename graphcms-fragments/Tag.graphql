@@ -4,8 +4,8 @@ fragment Tag on Tag {
   createdAt
   updatedAt
   publishedAt
-  name
   slug
+  name
   createdBy {
     ... on User {
       remoteTypeName: __typename

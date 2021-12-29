@@ -110,14 +110,14 @@ fragment Post on Post {
       stage
     }
   }
-  nextPost {
+  prevPost {
     ... on Post {
       remoteTypeName: __typename
       remoteId: id
       stage
     }
   }
-  prevPost {
+  nextPost {
     ... on Post {
       remoteTypeName: __typename
       remoteId: id

@@ -3,6 +3,7 @@ import Layout from "../../components/Layout"
 import Seo from "../../components/SEO"
 import { graphql, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 import {
   BsFillCalendarFill,
   BsClock,

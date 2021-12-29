@@ -26,7 +26,6 @@ module.exports = {
       options: {
         endpoint: process.env.GRAPHCMS_ENDPOINT,
         token: process.env.GRAPHCMS_TOKEN,
-        downloadLocalImages: false,
         buildMarkdownNodes: true,
       },
     },
