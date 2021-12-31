@@ -3,4 +3,4 @@ export const footerNavigation = [
   ["browse", ["essays", "books", "blogs", "courses"]],
   ["general", ["about", "contact me"]],
   ["projects", ["deep learning", "IndySCC21", "hackathons"]],
-]
+];

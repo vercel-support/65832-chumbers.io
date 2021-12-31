@@ -1,10 +1,10 @@
-import React from "react"
-import { footerNavigation } from "../assets/data/footerNavigation"
+import React from "react";
+import { footerNavigation } from "../data/footerNavigation";
 
-import { FiYoutube, FiLinkedin, FiGithub } from "react-icons/fi"
-import { MdOutlineEmail } from "react-icons/md"
+import { FiYoutube, FiLinkedin, FiGithub } from "react-icons/fi";
+import { MdOutlineEmail } from "react-icons/md";
 
-import Inputfield from "./Inputfield"
+import Inputfield from "./Inputfield";
 
 const Footer = () => {
   return (
@@ -44,7 +44,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="sm:mt-7 md:mt-auto pt-6 pb-8 sm:flex sm:justify-between border-t border-gray-100 xs:block">
-        <p className="text-white font-medium xs:mb-4 sm:mb-0">
+        <p className="text-white font-medium xs:mb-4 sm:mb-3">
           &copy; {new Date().getFullYear()} <span>chumbers.com</span>. Built
           with <a href="gatsbyjs.com">Gatsby</a>
         </p>
@@ -56,7 +56,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

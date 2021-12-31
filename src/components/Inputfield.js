@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 
 const Inputfield = ({ type, label, placeholder, btnLabel, isEmail, id }) => {
   return (
@@ -36,7 +36,7 @@ const Inputfield = ({ type, label, placeholder, btnLabel, isEmail, id }) => {
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Inputfield
+export default Inputfield;

@@ -1,15 +1,14 @@
-import React from "react"
-import Layout from "../../components/Layout"
-import { graphql } from "gatsby"
+import React from "react";
+import Layout from "../../components/Layout";
+import { graphql } from "gatsby";
 
 const CategoriesIndex = ({
   data: {
     allGraphCmsCategory: { nodes },
   },
 }) => {
-  console.log(nodes)
-  return <Layout>hello from categories!</Layout>
-}
+  return <Layout>hello from categories!</Layout>;
+};
 
 export const query = graphql`
   {
@@ -24,6 +23,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-export default CategoriesIndex
+export default CategoriesIndex;

@@ -1,26 +1,28 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/gatsby-config/
- */
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
-})
+});
 
 module.exports = {
-  /* Your site config here */
   siteMetadata: {
-    title: "Chumbers.com",
-    description: "A personal essays and blogs site",
-    author: "@nickmarks",
+    siteUrl: "https://www.ndmarks.com",
+    title: "ndmarks.com",
+    author: {
+      name: "Nick Marks",
+      summary:
+        "I am a Elec. Eng/Comp. Sci student living in Melbourne, Australia",
+    },
+    description: "A blog for essays and ideas.",
+    social: {
+      twitter: "nickmarks00",
+    },
   },
   plugins: [
-    `gatsby-plugin-sass`,
     `gatsby-plugin-postcss`,
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
-    `gatsby-plugin-mdx`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: "gatsby-source-graphcms",
       options: {
@@ -46,15 +48,5 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: `gatsby-plugin-page-progress`,
-      options: {
-        height: 3,
-        prependToBody: false,
-        color: `#4ef6c7`,
-        footerHeight: 500,
-        headerHeight: 0,
-      },
-    },
   ],
-}
+};

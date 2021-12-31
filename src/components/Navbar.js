@@ -1,16 +1,16 @@
-import React, { useState } from "react"
-import { Link } from "gatsby"
-import { FiYoutube, FiLinkedin, FiGithub } from "react-icons/fi"
-import { MdOutlineEmail } from "react-icons/md"
+import React, { useState } from "react";
+import { Link } from "gatsby";
+import { FiYoutube, FiLinkedin, FiGithub } from "react-icons/fi";
+import { MdOutlineEmail } from "react-icons/md";
 
-import { HiOutlineMenuAlt3 } from "react-icons/hi"
+import { HiOutlineMenuAlt3 } from "react-icons/hi";
 
 // import { headerNavigation } from "../assets/data/headerNavigation"
-import { lowerNavigation } from "../assets/data/lowerNavigation"
-import Inputfield from "./Inputfield"
+import { lowerNavigation } from "../data/lowerNavigation";
+import Inputfield from "./Inputfield";
 
 const Navbar = () => {
-  const [show, setShow] = useState(false)
+  const [show, setShow] = useState(false);
 
   return (
     <nav className="bg-off-black flex flex-col justify-items-center items-center sticky top-0 z-50 w-full">
@@ -36,8 +36,8 @@ const Navbar = () => {
         ))}
       </div>
     </nav>
-  )
-}
+  );
+};
 
 const UpperNav = ({ setToggle, isToggled }) => {
   return (
@@ -68,8 +68,8 @@ const UpperNav = ({ setToggle, isToggled }) => {
         onClick={() => setToggle(!isToggled)}
       />
     </div>
-  )
-}
+  );
+};
 
 const LowerNavDropdown = ({ list }) => {
   return (
@@ -107,7 +107,7 @@ const LowerNavDropdown = ({ list }) => {
         ))}
       </ul>
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

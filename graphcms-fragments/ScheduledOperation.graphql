@@ -78,10 +78,5 @@ fragment ScheduledOperation on ScheduledOperation {
       remoteId: id
       stage
     }
-    ... on Test {
-      remoteTypeName: __typename
-      remoteId: id
-      stage
-    }
   }
 }

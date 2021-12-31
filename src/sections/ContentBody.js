@@ -1,11 +1,10 @@
-import React from "react"
-import { RichText } from "@graphcms/rich-text-react-renderer"
-import PostImage from "../components/PostImage"
-import Codeblock from "../components/Codeblock"
-import { Link } from "gatsby"
+import React from "react";
+import { RichText } from "@graphcms/rich-text-react-renderer";
+import PostImage from "../components/PostImage";
+import Codeblock from "../components/Codeblock";
+import { Link } from "gatsby";
 
 const ContentBody = ({ content }) => {
-  console.log(content)
   return (
     <RichText
       content={content.raw}
@@ -72,14 +71,14 @@ const ContentBody = ({ content }) => {
               >
                 {children}
               </a>
-            )
+            );
           }
 
           return (
             <Link to={href} className="underline--magical" {...rest}>
               {children}
             </Link>
-          )
+          );
         },
         blockquote: ({ children }) => (
           <blockquote className="ml-2 my-4 py-2 font-display text-2xl pl-4 border-l-4 border-off-black italic transition duration-500 ease-out hover:border-teal bg-tertiary rounded-sm">
@@ -112,12 +111,12 @@ const ContentBody = ({ content }) => {
         class: ({ children, className }) => {
           const code = children?.props?.content[0]?.children[0].text
             ? children?.props?.content[0]?.children[0].text
-            : "Something went wrong..."
+            : "Something went wrong...";
 
           if (children?.props.content[0]?.type === "code-block") {
-            return <Codeblock language={className} blockCode={code.trim()} />
+            return <Codeblock language={className} blockCode={code.trim()} />;
           } else {
-            return <div className={className}>{children}</div>
+            return <div className={className}>{children}</div>;
           }
         },
         embed: {
@@ -126,19 +125,19 @@ const ContentBody = ({ content }) => {
               <div>
                 <h3>{nodeId}</h3>
               </div>
-            )
+            );
           },
           Tag: ({ nodeId }) => {
             return (
               <div>
                 <h3>{nodeId}</h3>
               </div>
-            )
+            );
           },
         },
       }}
     />
-  )
-}
+  );
+};
 
-export default ContentBody
+export default ContentBody;

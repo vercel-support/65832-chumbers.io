@@ -1,21 +1,20 @@
-import React from "react"
-import Layout from "../../components/Layout"
-import Seo from "../../components/SEO"
-import { graphql, Link } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
-import { MDXRenderer } from "gatsby-plugin-mdx"
+import React from "react";
+import Layout from "../../components/Layout";
+import Seo from "../../components/SEO";
+import { graphql, Link } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
 import {
   BsFillCalendarFill,
   BsClock,
   BsArrowLeft,
   BsArrowRight,
-} from "react-icons/bs"
-import { FiTwitter, FiFacebook, FiLinkedin } from "react-icons/fi"
+} from "react-icons/bs";
+import { FiTwitter, FiFacebook, FiLinkedin } from "react-icons/fi";
 
-import slugify from "slugify"
-import moment from "moment"
-import RichText from "../../sections/ContentBody"
-import { countWords, READING_RATE } from "../../utils/utilities"
+import slugify from "slugify";
+import moment from "moment";
+import RichText from "../../sections/ContentBody";
+import { countWords, READING_RATE } from "../../utils/utilities";
 
 const PostTemplate = ({ data }) => {
   const {
@@ -29,32 +28,32 @@ const PostTemplate = ({ data }) => {
     prevPost,
     nextPost,
     course,
-  } = data.graphCmsPost
+  } = data.graphCmsPost;
 
-  const duration = countWords(content.text) / READING_RATE
+  const duration = countWords(content.text) / READING_RATE;
 
-  const url = typeof window !== "undefined" ? window.location.href : ""
+  const url = typeof window !== "undefined" ? window.location.href : "";
 
   const nextPostSlug = nextPost
     ? slugify(nextPost.title, {
         lower: true,
         remove: /[*+~.()'"!:@]/g,
       })
-    : ""
+    : "";
 
   const prevPostSlug = prevPost
     ? slugify(prevPost.title, {
         lower: true,
         remove: /[*+~.()'"!:@]/g,
       })
-    : ""
+    : "";
 
   const courseSlug = course
     ? slugify(course.courseTitle, {
         lower: true,
         remove: /[*+~.()'"!:@]/g,
       })
-    : ""
+    : "";
 
   return (
     <Layout>
@@ -90,7 +89,7 @@ const PostTemplate = ({ data }) => {
               const tagSlug = slugify(tag.name, {
                 lower: true,
                 remove: /[*+~.()'"!:@]/g,
-              })
+              });
               return (
                 <Link
                   to={`/tags/${tagSlug}`}
@@ -99,7 +98,7 @@ const PostTemplate = ({ data }) => {
                 >
                   {`#${tag.name}`}
                 </Link>
-              )
+              );
             })}
           </article>
           <article className="flex p-1 mt-1">
@@ -193,8 +192,8 @@ const PostTemplate = ({ data }) => {
         <hr className="w-full" />
       </section>
     </Layout>
-  )
-}
+  );
+};
 
 export const query = graphql`
   query getSinglePost($id: String) {
@@ -242,6 +241,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-export default PostTemplate
+export default PostTemplate;
