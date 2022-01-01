@@ -4,7 +4,7 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.ndmarks.com",
+    siteUrl: "http://www.ndmarks.com",
     title: "ndmarks.com",
     author: {
       name: "Nick Marks",
@@ -23,6 +23,7 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: "gatsby-source-graphcms",
       options: {
@@ -48,5 +49,27 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `ndmarks.com`,
+        short_name: `chumbers`,
+        start_url: `/`,
+        background_color: `#f7f0eb`,
+        theme_color: `#a2466c`,
+        display: `standalone`,
+        icon: `./src/images/icon.png`,
+        cache_busting_mode: `none`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [`/categories/*`, `/tags/*`, `/courses/*`],
+        workboxConfig: {
+          globPatterns: [`./src/images/icon.png`],
+        },
+      },
+    }, //needs to stay listed after plugin-manifest
   ],
 };
