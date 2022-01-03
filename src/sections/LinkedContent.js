@@ -1,17 +1,17 @@
-import React from "react"
-import { GatsbyImage } from "gatsby-plugin-image"
-import { Link } from "gatsby"
-import Layout from "../components/Layout"
-import Seo from "../components/SEO"
-import moment from "moment"
-import { countWords, READING_RATE } from "../utils/utilities"
+import React from "react";
+import { GatsbyImage } from "gatsby-plugin-image";
+import { Link } from "gatsby";
+import Layout from "../components/Layout";
+import Seo from "../components/SEO";
+import moment from "moment";
+import { countWords, READING_RATE } from "../utils/utilities";
 import {
   BsFillCalendarFill,
   BsClock,
   BsFillCheckSquareFill,
-} from "react-icons/bs"
-import { BiDownArrow, BiUpArrow } from "react-icons/bi"
-import slugify from "slugify"
+} from "react-icons/bs";
+// import { BiDownArrow, BiUpArrow } from "react-icons/bi"
+import slugify from "slugify";
 
 const LinkedContent = ({ name, picture, posts, isCategory }) => {
   return (
@@ -62,13 +62,13 @@ const LinkedContent = ({ name, picture, posts, isCategory }) => {
           </div> */}
           <div className="flex flex-col mt-4">
             {posts.map((post, idx) => {
-              const { featuredPost, title, publishedAt, content } = post
-              const duration = countWords(content.text) / READING_RATE
+              const { featuredPost, title, publishedAt, content } = post;
+              const duration = countWords(content.text) / READING_RATE;
 
               const slugPost = slugify(title, {
                 lower: true,
                 remove: /[*+~.()'"!:@]/g,
-              })
+              });
 
               return (
                 <article
@@ -114,13 +114,13 @@ const LinkedContent = ({ name, picture, posts, isCategory }) => {
                     </Link>
                   </div>
                 </article>
-              )
+              );
             })}
           </div>
         </section>
       </main>
     </Layout>
-  )
-}
+  );
+};
 
-export default LinkedContent
+export default LinkedContent;

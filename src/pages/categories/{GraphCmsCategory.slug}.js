@@ -1,11 +1,11 @@
-import React, { useState } from "react"
-import { graphql } from "gatsby"
-import LinkedContent from "../../sections/LinkedContent"
+import React from "react";
+import { graphql } from "gatsby";
+import LinkedContent from "../../sections/LinkedContent";
 
 const CategoryTemplate = ({ data }) => {
-  const { name, categoryPicture } = data.graphCmsCategory
+  const { name, categoryPicture } = data.graphCmsCategory;
 
-  const [posts, setPosts] = useState(data.allGraphCmsPost.nodes)
+  const posts = data.allGraphCmsPost.nodes;
   return (
     <LinkedContent
       name={name}
@@ -13,8 +13,8 @@ const CategoryTemplate = ({ data }) => {
       posts={posts}
       isCategory={true}
     />
-  )
-}
+  );
+};
 
 export const query = graphql`
   query getSingleCategory($id: String) {
@@ -41,6 +41,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-export default CategoryTemplate
+export default CategoryTemplate;

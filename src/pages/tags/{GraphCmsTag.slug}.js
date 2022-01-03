@@ -1,13 +1,13 @@
-import React, { useState } from "react"
-import { graphql, Link } from "gatsby"
-import LinkedContent from "../../sections/LinkedContent"
+import React, { useState } from "react";
+import { graphql, Link } from "gatsby";
+import LinkedContent from "../../sections/LinkedContent";
 
 const TagsTemplate = ({ data }) => {
-  const { name, tagPicture } = data.graphCmsTag
+  const { name, tagPicture } = data.graphCmsTag;
 
-  const [posts, setPosts] = useState(data.allGraphCmsPost.nodes)
-  const [isDateDesc, setIsDateDesc] = useState(true)
-  const [isLengthDesc, setIsLengthDesc] = useState(null)
+  const posts = data.allGraphCmsPost.nodes;
+  // const [isDateDesc, setIsDateDesc] = useState(true)
+  // const [isLengthDesc, setIsLengthDesc] = useState(null)
 
   // const dateSortToggle = desc => {
   //   const newPosts = posts
@@ -46,8 +46,8 @@ const TagsTemplate = ({ data }) => {
       posts={posts}
       isCategory={false}
     />
-  )
-}
+  );
+};
 
 export const query = graphql`
   query getSingleTag($id: String) {
@@ -74,6 +74,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-export default TagsTemplate
+export default TagsTemplate;

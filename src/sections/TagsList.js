@@ -1,7 +1,7 @@
-import React, { useState } from "react"
-import { graphql, useStaticQuery, Link } from "gatsby"
-import slugify from "slugify"
-import { BsChevronLeft, BsChevronRight } from "react-icons/bs"
+import React, { useState } from "react";
+import { graphql, useStaticQuery, Link } from "gatsby";
+import slugify from "slugify";
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 const query = graphql`
   {
@@ -13,25 +13,25 @@ const query = graphql`
       }
     }
   }
-`
+`;
 
 const TagsList = () => {
-  const data = useStaticQuery(query)
-  const tags = data.allGraphCmsTag.nodes
+  const data = useStaticQuery(query);
+  const tags = data.allGraphCmsTag.nodes;
 
-  const [currentPage, setCurrentPage] = useState(1)
-  const [tagsPerPage, setTagsPerPage] = useState(7)
+  const [currentPage, setCurrentPage] = useState(1);
+  const tagsPerPage = 7;
 
-  const indexOfLastTag = currentPage * tagsPerPage
-  const indexOfFirstTag = indexOfLastTag - tagsPerPage
-  const currentTags = tags.slice(indexOfFirstTag, indexOfLastTag)
+  const indexOfLastTag = currentPage * tagsPerPage;
+  const indexOfFirstTag = indexOfLastTag - tagsPerPage;
+  const currentTags = tags.slice(indexOfFirstTag, indexOfLastTag);
 
-  const totalPages = Math.ceil(tags.length / tagsPerPage)
+  const totalPages = Math.ceil(tags.length / tagsPerPage);
 
-  const paginate = isLeft => {
-    const del = isLeft ? -1 : 1
-    setCurrentPage(currentPage + del)
-  }
+  const paginate = (isLeft) => {
+    const del = isLeft ? -1 : 1;
+    setCurrentPage(currentPage + del);
+  };
 
   return (
     <section className="bg-off-black rounded-md mt-20 sticky px-3 py-3 overflow-auto h-96 relative">
@@ -45,7 +45,7 @@ const TagsList = () => {
           const tagSlug = slugify(tag.name, {
             lower: true,
             remove: /[*+~.()'"!:@]/g,
-          })
+          });
           return (
             <Link
               to={`/tags/${tagSlug}`}
@@ -54,7 +54,7 @@ const TagsList = () => {
             >
               {`#${tag.name}`}
             </Link>
-          )
+          );
         })}
       </article>
       <div className="flex w-full justify-items-center text-teal absolute bottom-0 left-0 my-4 px-10">
@@ -74,7 +74,7 @@ const TagsList = () => {
         </button>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default TagsList
+export default TagsList;
