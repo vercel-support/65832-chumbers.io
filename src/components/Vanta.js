@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import NET from "vanta/dist/vanta.NET.min";
+import NET from "vanta/dist/vanta.net.min";
 import * as THREE from "three";
 
 const Vanta = () => {
