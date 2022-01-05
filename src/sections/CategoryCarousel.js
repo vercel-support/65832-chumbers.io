@@ -1,6 +1,6 @@
-import React from "react"
-import { graphql, useStaticQuery, Link } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
+import React from "react";
+import { graphql, useStaticQuery, Link } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const query = graphql`
   {
@@ -20,21 +20,21 @@ const query = graphql`
       }
     }
   }
-`
+`;
 
 export const CategoryCarousel = () => {
-  const data = useStaticQuery(query)
-  const categories = data.allGraphCmsCategory.nodes
+  const data = useStaticQuery(query);
+  const categories = data.allGraphCmsCategory.nodes;
 
   return (
     <section className="text-center">
       <div className="flex text-center">
-        <h2 className="text-3xl underline--magical font-display font-bold">
+        <h2 className="text-3xl text-white underline--magical font-display font-bold z-10">
           Browse categories
         </h2>
       </div>
-      <section className="flex p-12 overflow-x-scroll card-list">
-        {categories.map(category => (
+      <section className="flex p-12 overflow-x-scroll card-list justify-items-center">
+        {categories.map((category) => (
           <Link
             key={category.name}
             to={`/categories/${category.slug}`}
@@ -59,5 +59,5 @@ export const CategoryCarousel = () => {
         ))}
       </section>
     </section>
-  )
-}
+  );
+};

@@ -34,9 +34,9 @@ const TagsList = () => {
   };
 
   return (
-    <section className="bg-off-black rounded-md mt-20 sticky px-3 py-3 overflow-auto h-96 relative">
+    <section className="bg-white rounded-md mt-20 sticky px-3 py-3 overflow-auto relative mb-3">
       <div className="flex">
-        <h4 className="font-display text-xl text-white underline--magical text-left font-bold">
+        <h4 className="font-display text-xl text-off-black underline--magical text-left font-bold">
           Tags
         </h4>
       </div>

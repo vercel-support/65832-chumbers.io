@@ -17,8 +17,8 @@ const NotFoundPage = () => {
         </div>
         <h2 className="font-display">Page Not Found</h2>
         <p>
-          The page you are looking for might have been removed had its name
-          changed or is temporarily unavailable.
+          The page you are looking for might have been removed, had its name
+          changed, or is temporarily unavailable.
         </p>
         <Link to="/">Return Home</Link>
 

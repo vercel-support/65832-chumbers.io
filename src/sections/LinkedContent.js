@@ -1,7 +1,6 @@
 import React from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
-import Layout from "../components/Layout";
 import Seo from "../components/SEO";
 import moment from "moment";
 import { countWords, READING_RATE } from "../utils/utilities";
@@ -15,7 +14,7 @@ import slugify from "slugify";
 
 const LinkedContent = ({ name, picture, posts, isCategory }) => {
   return (
-    <Layout>
+    <main className="mx-10 my-10">
       <Seo
         title={!isCategory ? `#${name.toLowerCase()}` : name}
         description={
@@ -28,10 +27,10 @@ const LinkedContent = ({ name, picture, posts, isCategory }) => {
       <GatsbyImage
         image={picture.gatsbyImageData}
         alt={picture.alternate ? picture.alternate : "post hero-image"}
-        className="w-screen h-96 overflow-hidden hero-image -mt-10 mb-6 absolute"
+        className="w-screen h-96 overflow-hidden hero-image -mt-10 mb-6 absolute z-0"
       />
 
-      <main className="z-10">
+      <main className="z-50">
         <header className="flex text-center items-center">
           <h1 className="font-display text-3xl underline--magical font-bold">
             {isCategory ? `Category: ${name}` : `#${name.toLowerCase()}`}
@@ -119,7 +118,7 @@ const LinkedContent = ({ name, picture, posts, isCategory }) => {
           </div>
         </section>
       </main>
-    </Layout>
+    </main>
   );
 };
 

@@ -14,7 +14,7 @@ $white: #fff;
 html,
 body {
   height: 100%;
-  background-color: #eff5fc;
+  background-color: $off-black;
   overflow-x: hidden;
 }
 
@@ -91,6 +91,13 @@ hr {
     z-index: 9999;
   }
 }
+
+// #animation-bg {
+//   width: 100%;
+//   height: 40vh;
+//   position: fixed;
+//   z-index: -999;
+// }
 
 // TYPOGRAPHY
 @mixin underlineMagical {

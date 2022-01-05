@@ -1,7 +1,7 @@
-import React from "react"
-import { graphql, useStaticQuery, Link } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
-import slugify from "slugify"
+import React from "react";
+import { graphql, useStaticQuery, Link } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
+import slugify from "slugify";
 
 const query = graphql`
   {
@@ -47,16 +47,16 @@ const query = graphql`
       }
     }
   }
-`
+`;
 
 const Featured = () => {
-  const data = useStaticQuery(query)
-  const featured = data.allGraphCmsPost.nodes
+  const data = useStaticQuery(query);
+  const featured = data.allGraphCmsPost.nodes;
 
   return (
     <section className="text-center mt-8">
       <div className="flex text-right">
-        <h2 className="text-3xl underline--magical font-display font-bold">
+        <h2 className="text-3xl text-white underline--magical font-display font-bold z-10">
           Featured posts
         </h2>
       </div>
@@ -65,12 +65,12 @@ const Featured = () => {
           const slugPost = slugify(post.title, {
             lower: true,
             remove: /[*+~.()'"!:@]/g,
-          })
+          });
           return (
             <Link
               to={`/content/${slugPost}`}
               key={idx}
-              className="featured-card border border-gray-200 rounded-lg shadow-lg transform duration-500 ease-out hover:-translate-y-2 bg-white hover:shadow-xl cursor-pointer overflow-hidden"
+              className="featured-card rounded-lg shadow-lg transform duration-500 ease-out hover:-translate-y-2 bg-white hover:shadow-xl cursor-pointer overflow-hidden min-h-max"
             >
               <div className="h-3/5">
                 <span className="overlay-block bg-teal opacity-60 hidden h-3/5 w-full absolute z-10 text-left  overflow-hidden"></span>
@@ -98,7 +98,7 @@ const Featured = () => {
                     const tagSlug = slugify(tag.name, {
                       lower: true,
                       remove: /[*+~.()'"!:@]/g,
-                    })
+                    });
                     return (
                       <Link
                         to={`/tags/${tagSlug}`}
@@ -107,16 +107,16 @@ const Featured = () => {
                       >
                         {`#${tag.name}`}
                       </Link>
-                    )
+                    );
                   })}
                 </div>
               </header>
             </Link>
-          )
+          );
         })}
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Featured
+export default Featured;

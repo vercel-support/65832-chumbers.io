@@ -13,41 +13,19 @@ const Navbar = () => {
   const [show, setShow] = useState(false);
 
   return (
-    <nav className="bg-off-black flex flex-col justify-items-center items-center sticky top-0 z-50 w-full">
+    <nav className="bg-off-black flex flex-col justify-items-center items-center sticky top-0 z-50 w-full py-4">
       <UpperNav setToggle={setShow} isToggled={show} />
       <div
         className={`flex-col md:flex md:flex-row md:justify-items-center justify-between md:w-2/3 md:mx-auto border-t border-gray-100 w-full ${
           show ? "flex" : "hidden"
         } transition duration-300 ease-in`}
       >
-        <div className="px-4 md:hidden">
-          <Inputfield
-            className="my-1 px-2 ml-3 mr-1"
-            type="text"
-            label="🔍 SEARCH"
-            placeholder="Browse the site..."
-            btnLabel="search"
-            isEmail={false}
-            id="navbarSearch"
-          />
-        </div>
         {lowerNavigation.map((dropdown, index) => (
-          <LowerNavDropdown key={index} list={dropdown} />
+          <LowerNavDropdown isToggled={show} key={index} list={dropdown} />
         ))}
-      </div>
-    </nav>
-  );
-};
 
-const UpperNav = ({ setToggle, isToggled }) => {
-  return (
-    <div className="flex md:justify-items-center justify-between w-full md:w-2/3 md:mx-auto">
-      <h1 className="text-4xl font-display font-bold text-white ml-6 md:ml-0 py-6 md:pt-9 md:pb-4 text-center flex-shrink-0 mr-4 transition duration-600 ease hover:text-teal">
-        <Link to="/">chumbers</Link>
-      </h1>
-      <div className="flex-grow px-2 pt-5 pb-2 hidden md:flex relative z-10">
         <Inputfield
-          className="my-1 px-2 ml-3 mr-1"
+          className="md:hidden w-screen mx-auto"
           type="text"
           label="🔍 SEARCH"
           placeholder="Browse the site..."
@@ -56,11 +34,39 @@ const UpperNav = ({ setToggle, isToggled }) => {
           id="navbarSearch"
         />
       </div>
-      <div className="flex-shrink-0 text-gray-500 hidden md:flex items-center w-auto px-2 pt-5 pb-2">
-        <FiYoutube className="icon" />
-        <FiLinkedin className="icon" />
-        <FiGithub className="icon" />
-        <MdOutlineEmail className="icon" />
+    </nav>
+  );
+};
+
+const UpperNav = ({ setToggle, isToggled }) => {
+  return (
+    <div className="flex md:justify-items-center justify-between w-full md:w-2/3 md:mx-auto">
+      <h1 className="text-4xl font-display font-bold text-white ml-6 md:ml-0 py-6 md:pt-6 md:pb-4 text-center flex-shrink-0 mr-4 transition duration-600 ease hover:text-teal">
+        <Link to="/">chumbers</Link>
+      </h1>
+      <div className="flex-grow px-2 pb-5 hidden md:flex relative z-10">
+        <Inputfield
+          type="text"
+          label="🔍 SEARCH"
+          placeholder="Browse the site..."
+          btnLabel="search"
+          isEmail={false}
+          id="navbarSearch"
+        />
+      </div>
+      <div className="flex-shrink-0 text-gray-500 hidden md:flex items-center w-auto px-2 pt-6 pb-2">
+        <a href="https://www.youtube.com/c/Chumbers" className="icon">
+          <FiYoutube />
+        </a>
+        <a href="https://linkedin.com/in/nickmarks00" className="icon">
+          <FiLinkedin />
+        </a>
+        <a href="https://github.com/nickmarks00" className="icon">
+          <FiGithub />
+        </a>
+        <a href="mailto:nd.marks00@gmail.com" className="icon">
+          <MdOutlineEmail />
+        </a>
       </div>
       <HiOutlineMenuAlt3
         className="text-white cursor-pointer transition duration-500 hover:text-teal md:hidden mx-4 my-auto"
@@ -97,7 +103,7 @@ const LowerNavDropdown = ({ list }) => {
         {list[1].map((el, idx) => (
           <li key={idx}>
             <Link
-              className="w-full px-4 py-2 text-sm leading-5 text-center capitalize block cursor-pointer  dropdown-item"
+              className=" py-2 text-sm text-center capitalize block cursor-pointer  dropdown-item max-w-6 "
               role="menuitem"
               to="/about"
             >

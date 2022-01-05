@@ -8,8 +8,8 @@ import Inputfield from "./Inputfield";
 
 const Footer = () => {
   return (
-    <footer className="bg-off-black px-10 pt-6 pb-4">
-      <div className="grid grid-cols-2 md:grid-cols-6 gap-4  mb-4 pb-8">
+    <footer className="bg-off-black px-10 pb-4 z-10">
+      <div className="grid grid-cols-2 md:grid-cols-6 gap-4  mb-4 pb-8 border-t border-gray-100 pt-6">
         {footerNavigation.map((col, index) => (
           <div key={index} className="flex flex-col pl-4 justify-start">
             <h4 className="text-gray-200 text-sm uppercase font-semibold">
@@ -49,10 +49,18 @@ const Footer = () => {
           with <a href="gatsbyjs.com">Gatsby</a>
         </p>
         <div className="text-gray-500 flex xs:mt-4 sm:mt-1">
-          <FiYoutube className="icon" />
-          <FiLinkedin className="icon" />
-          <FiGithub className="icon" />
-          <MdOutlineEmail className="icon" />
+          <a href="https://www.youtube.com/c/Chumbers" className="icon">
+            <FiYoutube />
+          </a>
+          <a href="https://linkedin.com/in/nickmarks00" className="icon">
+            <FiLinkedin />
+          </a>
+          <a href="https://github.com/nickmarks00" className="icon">
+            <FiGithub />
+          </a>
+          <a href="mailto:nd.marks00@gmail.com" className="icon">
+            <MdOutlineEmail />
+          </a>
         </div>
       </div>
     </footer>
