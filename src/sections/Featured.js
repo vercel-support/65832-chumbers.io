@@ -15,7 +15,7 @@ const query = graphql`
           name
           avatar {
             alternate
-            gatsbyImageData(layout: FIXED, placeholder: TRACED_SVG)
+            gatsbyImageData(layout: FIXED, placeholder: DOMINANT_COLOR)
           }
         }
         category {
@@ -28,7 +28,7 @@ const query = graphql`
         createdAt
         featuredPost
         heroImage {
-          gatsbyImageData(placeholder: TRACED_SVG)
+          gatsbyImageData(placeholder: DOMINANT_COLOR)
           alternate
         }
         publishedAt

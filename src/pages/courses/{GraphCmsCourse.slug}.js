@@ -1,12 +1,12 @@
-import React from "react"
-import { graphql } from "gatsby"
-import LinkedContent from "../../sections/LinkedContent"
+import React from "react";
+import { graphql } from "gatsby";
+import LinkedContent from "../../sections/LinkedContent";
 
 const CourseTemplate = ({ data }) => {
   const { courseTitle, tags, publishedAt, updatedAt, courseImage } =
-    data.graphCmsCourse
+    data.graphCmsCourse;
 
-  const posts = data.allGraphCmsPost.nodes
+  const posts = data.allGraphCmsPost.nodes;
   return (
     <LinkedContent
       name={courseTitle}
@@ -14,8 +14,8 @@ const CourseTemplate = ({ data }) => {
       posts={posts}
       isCategory={false}
     />
-  )
-}
+  );
+};
 
 export const query = graphql`
   query getSingleCourse($id: String) {
@@ -30,7 +30,7 @@ export const query = graphql`
       courseImage {
         alternate
         attribution
-        gatsbyImageData(placeholder: TRACED_SVG)
+        gatsbyImageData(placeholder: DOMINANT_COLOR)
       }
     }
     allGraphCmsPost(filter: { course: { id: { eq: $id } } }) {
@@ -46,6 +46,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-export default CourseTemplate
+export default CourseTemplate;

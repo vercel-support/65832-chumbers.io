@@ -204,7 +204,7 @@ export const query = graphql`
         name
         avatar {
           alternate
-          gatsbyImageData(placeholder: TRACED_SVG)
+          gatsbyImageData(placeholder: DOMINANT_COLOR)
         }
       }
       category {
@@ -217,7 +217,7 @@ export const query = graphql`
       title
       heroImage {
         alternate
-        gatsbyImageData(placeholder: TRACED_SVG)
+        gatsbyImageData(placeholder: DOMINANT_COLOR)
       }
       publishedAt
       updatedAt

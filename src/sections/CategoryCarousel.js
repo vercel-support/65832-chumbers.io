@@ -15,7 +15,7 @@ const query = graphql`
         categoryPicture {
           alternate
           attribution
-          gatsbyImageData(placeholder: TRACED_SVG)
+          gatsbyImageData(placeholder: DOMINANT_COLOR)
         }
       }
     }

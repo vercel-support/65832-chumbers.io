@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { graphql, Link } from "gatsby";
+import React from "react";
+import { graphql } from "gatsby";
 import LinkedContent from "../../sections/LinkedContent";
 
 const TagsTemplate = ({ data }) => {
@@ -58,7 +58,7 @@ export const query = graphql`
       tagPicture {
         alternate
         attribution
-        gatsbyImageData(placeholder: TRACED_SVG)
+        gatsbyImageData(placeholder: DOMINANT_COLOR)
       }
     }
     allGraphCmsPost(filter: { tags: { elemMatch: { id: { eq: $id } } } }) {
